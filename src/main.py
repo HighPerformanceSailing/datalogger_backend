@@ -2,6 +2,10 @@
 
 from api import API
 from logger.MockLogger import MockLogger
+try:
+    from logger.RaspberryPiLogger import RaspberryPiLogger
+except:
+    print("Could not import the Raspberry Pi Logger.")
 
 import asyncio
 import threading

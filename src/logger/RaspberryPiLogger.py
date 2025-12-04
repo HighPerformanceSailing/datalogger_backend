@@ -1,4 +1,4 @@
-from ILogger import ILogger
+from logger.ILogger import ILogger
 
 import sys
 sys.path.insert(1,'/home/ht/HPSDataLogger/i2clibraries')
