@@ -6,10 +6,15 @@ authors = [
     {name = "ywcb00",email = "ywcb00@ywcb.org"}
 ]
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.12,<4.0.0"
 dependencies = [
-    "flask (>=3.1.2,<4.0.0)"
+    "flask (>=3.1.2,<4.0.0)",
+    "pandas (>=2.3.3,<3.0.0)",
+    "flask-cors (>=6.0.2,<7.0.0)"
 ]
+
+[tool.poetry]
+package-mode = false
 
 
 [build-system]

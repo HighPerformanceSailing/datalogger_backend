@@ -2,6 +2,7 @@
 
 from api import API
 from logger.MockLogger import MockLogger
+from logger.ReadCSVLogger import ReadCSVLogger
 try:
     from logger.RaspberryPiLogger import RaspberryPiLogger
 except:
@@ -16,7 +17,9 @@ def loggingThread(logger, interval):
     asyncio.run(logger.loggingLoop(interval=interval))
 
 async def main():
-    logger = RaspberryPiLogger()
+    # logger = RaspberryPiLogger()
+    # logger = MockLogger()
+    logger = ReadCSVLogger()
     interval = 0.1
     thread = threading.Thread(target=loggingThread, args=(logger, interval))
     thread.start()
