@@ -18,8 +18,8 @@ def loggingThread(logger, interval):
 
 async def main():
     # logger = RaspberryPiLogger()
-    # logger = MockLogger()
-    logger = ReadCSVLogger()
+    logger = MockLogger()
+    # logger = ReadCSVLogger()
     interval = 0.1
     thread = threading.Thread(target=loggingThread, args=(logger, interval))
     thread.start()

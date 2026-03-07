@@ -1,4 +1,5 @@
 from logger.ILogger import ILogger
+from utils import coordinatesToSpeed
 
 import csv
 import pandas as pd
@@ -36,5 +37,7 @@ class ReadCSVLogger(ILogger):
 
     # === Acquisition logic ===
     def readSensors(self):
+        previousGPS = self.data_record["gps"]
         data_values = next(self.reader)
         self.data_record = unflattenDict(dict(zip(self.data_keys, data_values)))
+        self.data_record["sog"] = coordinatesToSpeed(previousGPS["latitude"], previousGPS["longitude"], previousGPS["timestamp"], self.data_record["gps"]["latitude"], self.data_record["gps"]["longitude"], self.data_record["gps"]["timestamp"])
